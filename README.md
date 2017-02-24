@@ -37,6 +37,7 @@ If you have a license key and want to check for kernel updates every 30 minutes 
 
 ```
 class { '::kernelcare':
+  config_managekey => true,
   config_accesskey => 'YOUR_LICENSE_KEY',
 }
 ```
@@ -48,6 +49,7 @@ By default kcarectl runs every 30 minutes unless you give it a custom cron time.
 
 ```
 class { '::kernelcare':
+  config_managekey => true,
   config_accesskey => 'YOUR_LICENSE_KEY',
   cron_minute      => '13',
   cron_hour        => '03',
