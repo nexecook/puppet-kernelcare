@@ -48,12 +48,12 @@ By default kcarectl runs every 30 minutes unless you give it a custom cron time.
 
 ```
 class { '::kernelcare':
-  config_accesskey	=> 'YOUR_LICENSE_KEY',
-  cron_minute		=> '13',
-  cron_hour		=> '03',
-  cron_month		=> '*',
-  cron_monthday		=> '*',
-  cron_weekday		=> '*',
+  config_accesskey => 'YOUR_LICENSE_KEY',
+  cron_minute      => '13',
+  cron_hour        => '03',
+  cron_month       => '*',
+  cron_monthday    => '*',
+  cron_weekday     => '*',
 }
 ```
 
