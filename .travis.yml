@@ -1,0 +1,58 @@
+---
+language: ruby
+bundler_args: --without development
+before_install: rm Gemfile.lock || true
+services:
+  - docker
+matrix:
+  fast_finish: true
+  include:
+  - rvm: 2.2
+    env: PUPPET_INSTALL_TYPE=agent BEAKER_set=docker/centos-6-x64
+    script: bundle exec rake beaker
+    services: docker
+    sudo: required
+  - rvm: 2.2
+    env: PUPPET_INSTALL_TYPE=agent BEAKER_set=docker/centos-7-x64
+    script: bundle exec rake beaker
+    services: docker
+    sudo: required
+  - rvm: 2.2
+    env: PUPPET_INSTALL_TYPE=agent BEAKER_set=docker/debian-8-x64
+    script: bundle exec rake beaker
+    services: docker
+    sudo: required
+
+  - rvm: 2.2
+    env: PUPPET_GEM_VERSION="~> 4.0" STRICT_VARIABLES=yes
+
+  - rvm: 2.2
+    env: PUPPET_GEM_VERSION="~> 4.0.0" STRICT_VARIABLES=yes
+  - rvm: 2.2
+    env: PUPPET_GEM_VERSION="~> 4.1.0" STRICT_VARIABLES=yes
+  - rvm: 2.2
+    env: PUPPET_GEM_VERSION="~> 4.2.0" STRICT_VARIABLES=yes
+  - rvm: 2.2
+    env: PUPPET_GEM_VERSION="~> 4.3.0" STRICT_VARIABLES=yes
+  - rvm: 2.2
+    env: PUPPET_GEM_VERSION="~> 4.4.0" STRICT_VARIABLES=yes
+  - rvm: 2.2
+    env: PUPPET_GEM_VERSION="~> 4.5.0" STRICT_VARIABLES=yes
+  - rvm: 2.2
+    env: PUPPET_GEM_VERSION="~> 4.6.0" STRICT_VARIABLES=yes
+  - rvm: 2.2
+    env: PUPPET_GEM_VERSION="~> 4.7.0" STRICT_VARIABLES=yes
+  - rvm: 2.2
+    env: PUPPET_GEM_VERSION="~> 4.8.0" STRICT_VARIABLES=yes
+script: "bundle exec rake validate && bundle exec rake lint && bundle exec rake spec SPEC_OPTS='--format documentation'"
+notifications:
+  email: false
+deploy:
+  provider: puppetforge
+  user: nexcess
+  password:
+    secure: "TYWX5QWSETiy+DqM/e8pxXGDat3xz7jF66rbW5mwv7o7sp+PV26pKz8UCSnR4bQ8mmkAcMC6IHQi3VWDXJT1HBsLqpNTDpIiJIPhlve9ddP1RRiUPSXSNcRbBFIu2Uu5w7W6lr37Y9VJ78OHnUirQq7gCN0AVIAgnNgznxc8/P8rRtOMzkhr1tm0WOKsX7oskQvMsYNckGS+meGp0EsIukX/RRBxyL0xwcUjp+I+tUp3VyHiBLBBGFpyTsiHOpE3y/4kr39bKyK7DhpEnkC5DkfShtF5MT7gPSZvCCB6jORjMGTxEFTgVcWOKGm5wjSnVyEoHnoFfRCDh8cwKCAUm8xsqyFxPLemIFq3HPeh92MDodKLfiF5WdjEf23MKtNW2jKd69HaF0r2t38anmHh/SoT4CYypNXaypFWTRU4GduW/jSJ+d4gJi+KQvEKvKKlmn53QS7i3bKu7pMqC4zbLQWlYTKtQ2rCkItJME6pCrFaX8dzs01I2+9d1YoEG6pYKpoPwnueXA5byTw5Vs1p+4Ltyul8JtzAEUWbuCCjBh4mLefqAHMIEugaygfaHpyYo5nzPkpdoLQpq6CXgWEaWe4Wg5Ev8xw82frT8AgXAiA38QqsjKc438WK6NfC8pOjRCs0XKyq5aInpCHTd+6UarWWEf+BoQInlx43mC0W1mA="
+  on:
+    tags: true
+    rvm: 2.2
+    condition: $PUPPET_GEM_VERSION = "~> 4.0"

@@ -1,0 +1,5 @@
+### THIS FILE IS MANAGED BY PUPPET
+
+<% scope.lookupvar('kernelcare::config_kmod_blacklist').each do |kmod| -%>
+<%= kmod %>
+<% end -%>

@@ -1,0 +1,62 @@
+{
+  "name": "nexcess-kernelcare",
+  "version": "0.0.1",
+  "author": "nexcess",
+  "summary": "Install and configure kernelcare for Centos, RHEL, Debian, and Ubuntu",
+  "license": "Apache-2.0",
+  "source": "https://github.com/nexcess/puppet-kernelcare",
+  "project_page": "https://github.com/nexcess/puppet-kernelcare",
+  "issues_url": "https://github.com/nexcess/puppet-kernelcare/issues",
+  "tags": [
+    "kernel",
+    "kernelcare"
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "7",
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "14.04",
+        "16.04"
+      ]
+    },
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 3.2.0 < 5.0.0"
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 2.0.0 < 5.0.0"
+    },
+    {
+      "name": "puppetlabs-apt",
+      "version_requirement": ">= 2.0.0 < 3.0.0"
+    }
+  ]
+}
