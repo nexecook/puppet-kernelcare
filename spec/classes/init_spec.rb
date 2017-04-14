@@ -120,9 +120,14 @@ describe 'kernelcare' do
             it { should contain_cron('kernelcare').with_weekday('4') }
           end
 
-          describe 'allow cron_install = false' do
-            let(:params) { {:cron_install => false } }
+          describe 'allow cron_manage = false' do
+            let(:params) { {:cron_manage => false } }
             it { should_not contain_cron('kernelcare') }
+          end
+
+          describe 'allow cron_ensure = absent' do
+            let(:params) { {:cron_ensure => 'absent' } }
+            it { should contain_cron('kernelcare').with_ensure('absent') }
           end
 
         end

@@ -8,7 +8,8 @@ class kernelcare::params {
   $config_ensurekey               = 'present'
   $config_autoupdate              = true
 
-  $cron_install                   = true
+  $cron_manage                    = true
+  $cron_ensure                    = 'present'
   $cron_minute                    = [fqdn_rand(30) , fqdn_rand(30) + 30]
   $cron_hour                      = '*'
   $cron_month                     = '*'
