@@ -64,11 +64,11 @@ class kernelcare (
     validate_string($service_name)
     validate_string($service_ensure)
 
-    anchor {'kernelcare::begin':} ->
-    class{'::kernelcare::repo':} ->
-    class{'::kernelcare::install':} ->
-    class{'::kernelcare::config':} ->
-    class{'::kernelcare::service':} ->
-    class{'::kernelcare::cron':} ->
-    anchor {'kernelcare::end':}
+    anchor {'kernelcare::begin':}
+    -> class{'::kernelcare::repo':}
+    -> class{'::kernelcare::install':}
+    -> class{'::kernelcare::config':}
+    -> class{'::kernelcare::service':}
+    -> class{'::kernelcare::cron':}
+    -> anchor {'kernelcare::end':}
 }
