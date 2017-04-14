@@ -93,8 +93,11 @@ Specify if the server should be registered. Default value: 'present'
 #### `config_autoupdate`
 kcarectl --auto runs in a cron job to check for and download new updates. You can can configure this cron job to automatically install new updates as they become available. Default value: 'true'
 
-#### `cron_install`
-Specify if you want the module to install the kernelcare cron job. Default value: true
+#### `cron_manage`
+Specify if you want the module to manage the kernelcare cron job. Default value: true
+
+#### `cron_ensure`
+Specify if you want the cron job to be present. Default value: 'present'
 
 #### `cron_minute`
 Specify a custom cron_minute. Default value: `[fqdn_rand(30) , fqdn_rand(30) + 30]`

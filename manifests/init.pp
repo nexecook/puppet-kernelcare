@@ -8,7 +8,8 @@ class kernelcare (
   $config_ensurekey               = $kernelcare::params::config_ensurekey,
   $config_autoupdate              = $kernelcare::params::config_autoupdate,
 
-  $cron_install                   = $kernelcare::params::cron_install,
+  $cron_manage                    = $kernelcare::params::cron_manage,
+  $cron_ensure                    = $kernelcare::params::cron_ensure,
   $cron_minute                    = $kernelcare::params::cron_minute,
   $cron_hour                      = $kernelcare::params::cron_hour,
   $cron_month                     = $kernelcare::params::cron_month,
@@ -42,7 +43,8 @@ class kernelcare (
     validate_string($config_ensurekey)
     validate_bool($config_autoupdate)
 
-    validate_bool($cron_install)
+    validate_bool($cron_manage)
+    validate_string($cron_ensure)
 
     validate_bool($repo_install)
     validate_string($repo_name)
@@ -62,11 +64,11 @@ class kernelcare (
     validate_string($service_name)
     validate_string($service_ensure)
 
-    anchor {'kernelcare::begin':} ->
-    class{'::kernelcare::repo':} ->
-    class{'::kernelcare::install':} ->
-    class{'::kernelcare::config':} ->
-    class{'::kernelcare::service':} ->
-    class{'::kernelcare::cron':} ->
-    anchor {'kernelcare::end':}
+    anchor {'kernelcare::begin':}
+    -> class{'::kernelcare::repo':}
+    -> class{'::kernelcare::install':}
+    -> class{'::kernelcare::config':}
+    -> class{'::kernelcare::service':}
+    -> class{'::kernelcare::cron':}
+    -> anchor {'kernelcare::end':}
 }
