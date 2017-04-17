@@ -127,7 +127,13 @@ Specify a custom description for the yum repo. Default value: 'kernelcare'
 Specify a baseurl_prefix for the yum repo. Default value: 'https://repo.cloudlinux.com/kernelcare'
 
 #### `repo_apt_location`
-Specify a baseurl_prefix for the yum repo. Default value: 'https://repo.cloudlinux.com/kernelcare-debian/8'
+Specify a baseurl_prefix for the apt repo. Default value: 'https://repo.cloudlinux.com/kernelcare-debian/8'
+
+#### `repo_apt_release`
+Specify the release branch to use for the apt repo. Default value: 'stable'
+
+#### `repo_apt_repos`
+Specify the repos (space delimited) to use for the apt repo. Default value: 'main'
 
 #### `repo_enabled`
 Specify the enable value for the yum and apt repo. Default value: true

@@ -21,6 +21,8 @@ class kernelcare (
   $repo_descr                     = $kernelcare::params::repo_descr,
   $repo_yum_baseurl_prefix        = $kernelcare::params::repo_yum_baseurl_prefix,
   $repo_apt_location              = $kernelcare::params::repo_apt_location,
+  $repo_apt_release               = $kernelcare::params::repo_apt_release,
+  $repo_apt_repos                 = $kernelcare::params::repo_apt_repos,
   $repo_enabled                   = $kernelcare::params::repo_enabled,
   $repo_gpgcheck                  = $kernelcare::params::repo_gpgcheck,
   $repo_gpgkey                    = $kernelcare::params::repo_gpgkey,

@@ -61,7 +61,8 @@ describe 'kernelcare' do
             end
           when 'Debian'
             it { should contain_apt__source('kernelcare').with_location('https://repo.cloudlinux.com/kernelcare-debian/8') }
-            it { should contain_apt__source('kernelcare').with_repos('kernelcare') }
+            it { should contain_apt__source('kernelcare').with_release('stable') }
+            it { should contain_apt__source('kernelcare').with_repos('main') }
             it { should contain_apt__source('kernelcare').with_key('id' => '6DC3D600CDEF74BB', 'source' => 'https://repo.cloudlinux.com/kernelcare-debian/8/conf/kcaredsa_pub.gpg') }
 
             describe 'allow custom name' do
@@ -75,6 +76,14 @@ describe 'kernelcare' do
             describe 'allow repo_install = false' do
               let(:params) { {:repo_install => false } }
               it { should_not contain_apt__source('kernelcare') }
+            end
+            describe 'allow custom release' do
+              let(:params) { {:repo_apt_release => 'unstable' } }
+              it { should contain_apt__source('kernelcare').with_release('unstable') }
+            end
+            describe 'allow custom repos' do
+              let(:params) { {:repo_apt_repos => 'foo bar baz' } }
+              it { should contain_apt__source('kernelcare').with_repos('foo bar baz') }
             end
           end
         end
