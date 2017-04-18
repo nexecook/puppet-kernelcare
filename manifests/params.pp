@@ -21,6 +21,8 @@ class kernelcare::params {
   $repo_descr                     = 'kernelcare'
   $repo_yum_baseurl_prefix        = 'https://repo.cloudlinux.com/kernelcare'
   $repo_apt_location              = 'https://repo.cloudlinux.com/kernelcare-debian/8'
+  $repo_apt_release               = 'stable'
+  $repo_apt_repos                 = 'main'
   $repo_enabled                   = true
   $repo_gpgcheck                  = true
   $repo_gpgkey                    = 'https://repo.cloudlinux.com/kernelcare/RPM-GPG-KEY-KernelCare'

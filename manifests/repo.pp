@@ -14,7 +14,8 @@ class kernelcare::repo {
         include ::apt
         apt::source {$kernelcare::repo_name:
           location => $kernelcare::repo_apt_location,
-          repos    => $kernelcare::repo_name,
+          release  => $kernelcare::repo_apt_release,
+          repos    => $kernelcare::repo_apt_repos,
           key      => {
             'id'     => $kernelcare::repo_key_id,
             'source' => $kernelcare::repo_key_source,
