@@ -3,7 +3,7 @@ class kernelcare::config {
     ensure  => 'present',
     owner   => 'root',
     group   => 'root',
-    mode    => '0600',
+    mode    => '0640',
     content => template($kernelcare::config_template_kcare),
   }
 
@@ -11,7 +11,7 @@ class kernelcare::config {
     ensure  => 'present',
     owner   => 'root',
     group   => 'root',
-    mode    => '0600',
+    mode    => '0640',
     content => template($kernelcare::config_template_kmod_blacklist),
   }
 

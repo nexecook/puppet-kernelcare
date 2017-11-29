@@ -144,11 +144,11 @@ describe 'kernelcare' do
         describe "kernelcare::config" do
           it { should contain_file('/etc/sysconfig/kcare/kcare.conf').with_owner('root') }
           it { should contain_file('/etc/sysconfig/kcare/kcare.conf').with_group('root') }
-          it { should contain_file('/etc/sysconfig/kcare/kcare.conf').with_mode('0600') }
+          it { should contain_file('/etc/sysconfig/kcare/kcare.conf').with_mode('0640') }
           it { should contain_file('/etc/sysconfig/kcare/kcare.conf').with_content(/AUTO_UPDATE=True/) }
           it { should contain_file('/etc/sysconfig/kcare/freezer.modules.blacklist').with_owner('root') }
           it { should contain_file('/etc/sysconfig/kcare/freezer.modules.blacklist').with_group('root') }
-          it { should contain_file('/etc/sysconfig/kcare/freezer.modules.blacklist').with_mode('0600') }
+          it { should contain_file('/etc/sysconfig/kcare/freezer.modules.blacklist').with_mode('0640') }
           ['vxodm', 'vxportal', 'vxfen', 'vxspec', 'vxio'].each do |kmod|
             it { should contain_file('/etc/sysconfig/kcare/freezer.modules.blacklist').with_content(/#{kmod}/) }
           end
