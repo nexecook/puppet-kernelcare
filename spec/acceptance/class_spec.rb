@@ -34,14 +34,14 @@ describe 'kernelcare class' do
     describe "kernelcare::config" do
       describe file('/etc/sysconfig/kcare/kcare.conf') do
         it { is_expected.to exist }
-        it { is_expected.to be_mode(600) }
+        it { is_expected.to be_mode(640) }
         it { is_expected.to be_owned_by('root') }
         it { is_expected.to be_grouped_into('root') }
         it { is_expected.to contain('AUTO_UPDATE=True') }
       end
       describe file('/etc/sysconfig/kcare/freezer.modules.blacklist') do
         it { is_expected.to exist }
-        it { is_expected.to be_mode(600) }
+        it { is_expected.to be_mode(640) }
         it { is_expected.to be_owned_by('root') }
         it { is_expected.to be_grouped_into('root') }
         it { is_expected.to contain('vxodm') }
