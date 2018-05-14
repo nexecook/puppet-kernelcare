@@ -181,6 +181,12 @@ describe 'kernelcare' do
             let(:params) { {:config_accesskey => 'deadbeef', :config_managekey => true} }
             it { should contain_kernelcare_register('deadbeef') }
           end
+
+          describe 'ensure config files do not exist' do
+            let(:params) { {:config_ensure => 'absent' } }
+            it { should contain_file('/etc/sysconfig/kcare/kcare.conf').with_ensure('absent') }
+            it { should contain_file('/etc/sysconfig/kcare/freezer.modules.blacklist').with_ensure('absent') }
+          end
         end
 
         describe "kernelcare::service" do

@@ -1,6 +1,6 @@
 class kernelcare::config {
   file {'/etc/sysconfig/kcare/kcare.conf':
-    ensure  => 'present',
+    ensure  => $kernelcare::config_ensure,
     owner   => 'root',
     group   => 'root',
     mode    => '0640',
@@ -8,7 +8,7 @@ class kernelcare::config {
   }
 
   file {'/etc/sysconfig/kcare/freezer.modules.blacklist':
-    ensure  => 'present',
+    ensure  => $kernelcare::config_ensure,
     owner   => 'root',
     group   => 'root',
     mode    => '0640',

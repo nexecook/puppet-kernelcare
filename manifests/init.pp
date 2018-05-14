@@ -1,5 +1,6 @@
 class kernelcare (
 
+  $config_ensure                  = $kernelcare::params::config_ensure,
   $config_template_kcare          = $kernelcare::params::config_template_kcare,
   $config_template_kmod_blacklist = $kernelcare::params::config_template_kmod_blacklist,
   $config_kmod_blacklist          = $kernelcare::params::config_kmod_blacklist,
@@ -37,6 +38,7 @@ class kernelcare (
   $service_ensure                 = $kernelcare::params::service_ensure,
 
   ) inherits kernelcare::params {
+    validate_string($config_ensure)
     validate_string($config_template_kcare)
     validate_string($config_template_kmod_blacklist)
     validate_array($config_kmod_blacklist)
