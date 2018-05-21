@@ -3,6 +3,8 @@ class kernelcare::params {
   $config_template_kmod_blacklist = 'kernelcare/freezer.modules.blacklist.erb'
   $config_kmod_blacklist          = ['vxodm', 'vxportal', 'vxfen', 'vxspec', 'vxio']
 
+  $ensure                         = undef
+  $config_ensure                  = 'present'
   $config_accesskey               = 'INSERT_ACCESS_KEY'
   $config_managekey               = false
   $config_ensurekey               = 'present'
