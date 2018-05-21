@@ -72,6 +72,9 @@ class { '::kernelcare':
 
 ### Parameters
 
+#### `ensure`
+Can be used to remove kernelcare. Acceptable values being `undef` and `absent`. Default value: 'undef'
+
 #### `config_ensure`
 Specifiy if `kcare.conf` and `freezer.modules.blacklist` should exist. Default value: 'present'
 
