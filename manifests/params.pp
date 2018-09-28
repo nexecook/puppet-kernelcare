@@ -9,6 +9,7 @@ class kernelcare::params {
   $config_managekey               = false
   $config_ensurekey               = 'present'
   $config_autoupdate              = true
+  $config_kcareconf_hash          = {}
 
   $cron_manage                    = true
   $cron_ensure                    = 'present'

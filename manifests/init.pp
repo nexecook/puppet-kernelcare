@@ -10,6 +10,7 @@ class kernelcare (
   $config_accesskey                  = $kernelcare::params::config_accesskey,
   $config_ensurekey                  = $kernelcare::params::config_ensurekey,
   $config_autoupdate                 = $kernelcare::params::config_autoupdate,
+  $config_kcareconf_hash             = $kernelcare::params::config_kcareconf_hash,
 
   $cron_manage                       = $kernelcare::params::cron_manage,
   $cron_ensure                       = $kernelcare::params::cron_ensure,

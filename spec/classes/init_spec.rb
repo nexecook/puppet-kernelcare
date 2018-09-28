@@ -153,12 +153,17 @@ describe 'kernelcare' do
             it { should contain_file('/etc/sysconfig/kcare/freezer.modules.blacklist').with_content(/#{kmod}/) }
           end
 
+          describe 'allow custom template settings' do
+            let(:params) { {:config_kcareconf_hash => { 'PREFIX' => 'test'} } }
+            it { should contain_file('/etc/sysconfig/kcare/kcare.conf').with_content(/PREFIX=test/) }
+          end
+
           describe 'allow custom template for kcare.conf' do
             let(:params) { {:config_template_kcare => 'custom_templates/kcare.conf.erb' } }
             it { should contain_file('/etc/sysconfig/kcare/kcare.conf').with_content(/herp-a-derp/) }
           end
 
-          describe 'allow custom template for kcare.conf' do
+          describe 'allow custom template for freezer.modules.blacklist' do
             let(:params) { {:config_template_kmod_blacklist => 'custom_templates/kcare.conf.erb' } }
             it { should contain_file('/etc/sysconfig/kcare/freezer.modules.blacklist').with_content(/herp-a-derp/) }
           end

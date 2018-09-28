@@ -1,3 +1,8 @@
 ### THIS FILE IS MANAGED BY PUPPET
 
 AUTO_UPDATE=<%= scope.lookupvar('kernelcare::config_autoupdate').to_s.capitalize %>
+<% require 'shellwords' -%>
+<% settings = scope.lookupvar('kernelcare::config_kcareconf_hash') -%>
+<% settings.each do |key, value| -%>
+<%= key -%>=<%= Shellwords.escape(value) %>
+<% end -%>
